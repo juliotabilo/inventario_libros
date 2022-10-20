@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">    
+    <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
+    
+    <title>Biblioteca Online</title>
+</head>
+<body>
+
+      <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="#">Bienvenido <b><%= locals.nombre_usuario ? nombre_usuario : "User" %></b> al Sistema Online de Bibliotec@s (Diseñado por Julio Tabilo Riquelme)</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavDropdown">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                  <a class="nav-link active" aria-current="page" href="/route/dashboard">Inicio</a>
+                </li>                            
+            </ul>   
+        </div>
+        <div class="collapse navbar-collapse" id="navbarNavDropdown">
+          <ul class="navbar-nav">
+            <li class="nav-item active">
+              <a class="nav-link" href="/route/logout">Cerrar Sesión</a>
+            </li>
+          </ul>
+        </div>
+      </nav>
+      <div align="center">
+      <div  class=" w-75 ">    
+        <h3>Log de Usuario <%= locals.nombre_usuario ? nombre_usuario : "User" %></h3>
+      <table class="table table-bordered table-striped text-center mt-4" id="tablaLibros">
+        <thead>
+          <tr class="bg-primary text-white">
+            <th scope="col">Fecha Acción</th>
+            <th scope="col">Descripción</th>  
+          </tr>
+        </thead>
+        <tbody>
+            <% log.forEach((l)=>{ %>
+                <tr>  
+                <td><%= l.fecha_accion_formateada %></td>  
+                <td><%= l.descripcion_accion %></td>
+            </tr>                                   
+         <% }) %>
+        </tbody>
+      </table>
+      </div>   
+        <a href="/route/dashboard" class="btn btn-secondary">Volver</a>
+      </div>
+   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>    
+   <script type="text/javascript" language="javascript" src="https://code.jquery.com/jquery-3.5.1.js"></script>
+   <script type="text/javascript" language="javascript" src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.min.js"></script>
+   <script type="text/javascript" language="javascript" src="https://cdn.datatables.net/1.10.22/js/dataTables.bootstrap5.min.js"></script>   
+   <script>
+    $(document).ready(function () {
+});
+   </script> 
+  </body>
+</html>
